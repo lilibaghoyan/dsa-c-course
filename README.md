@@ -63,13 +63,66 @@ For longer coding sessions, open an interactive shell:
 docker compose run dev
 ```
 
-Then work normally inside the container:
+### Working Inside the Container
+
+Once inside the container, you can build and run tests as follows:
+
+#### Using CMake's recommended workflow
 ```bash
+# Configure and build the project
 cmake -S . -B build
 cmake --build build
+
+# Run all tests with output on failure
 ctest --test-dir build --output-on-failure
+
+# Format source code
 clang-format -i src/*.c include/*.h tests/*.c
+````
+
+#### Using a manual build directory
+
+```bash
+# Create and enter a build directory
+mkdir -p build
+cd build
+
+# Configure and build
+cmake ..
+make -j$(nproc)   # Use all available cores
+
+# Run all tests with verbose output
+ctest --verbose
+
+# Or run a specific test by name
+ctest -R test_name --verbose
 ```
+
+This approach keeps your build clean, ensures tests are reproducible, and helps maintain consistent code formatting.
+
+
+### Clean Build
+
+To remove any previous build artifacts and build the project from scratch:
+
+```bash
+# Clean build: remove old build directory and rebuild
+rm -rf build
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+
+# Run all tests
+ctest --verbose
+
+# Format source code
+clang-format -i src/*.c include/*.h tests/*.c
+````
+
+You can think of this as a one-step “cleanbuild” process—use it whenever you want a completely fresh build.
+
+---
 
 Type `exit` when done. Your changes are automatically saved on your host machine.
 

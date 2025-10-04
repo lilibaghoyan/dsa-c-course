@@ -1,7 +1,7 @@
 #include "dsalib/search/binary_search.h"
 
-#include <stddef.h>
 #include <limits.h>
+#include <stddef.h>
 
 size_t dsalib_lower_bound(const int* arr, size_t size, int target) {
     return INT_MAX;

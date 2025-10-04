@@ -5,7 +5,13 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # Create library
-add_library(dsalib src/add.c)
+add_library(
+    dsalib 
+    src/math/add.c 
+    src/search/linear_search.c 
+    src/search/binary_search.c
+)
+
 target_include_directories(dsalib PUBLIC include)
 
 # Enable testing

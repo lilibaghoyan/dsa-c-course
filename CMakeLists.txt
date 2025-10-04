@@ -14,6 +14,8 @@ add_library(
 
 target_include_directories(dsalib PUBLIC include)
 
+add_subdirectory(playground)
+
 # Enable testing
 enable_testing()
 add_subdirectory(tests)

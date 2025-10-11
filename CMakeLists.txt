@@ -7,6 +7,8 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 # Create library
 add_library(
     dsalib 
+    src/containers/queue.c 
+    src/containers/stack.c
     src/math/add.c 
     src/search/linear_search.c 
     src/search/binary_search.c

@@ -48,7 +48,7 @@ int dsalib_binary_search(const int* arr, size_t size, int target) {
 }
 
 int dsalib_binary_search_recursive(const int* arr, int left, int right, int target) {
-    if (!arr || left >= right)
+    if (!arr || left > right)
     {
         return -1;
     }
@@ -62,6 +62,6 @@ int dsalib_binary_search_recursive(const int* arr, int left, int right, int targ
         return dsalib_binary_search_recursive(arr, mid + 1, right, target);
     }
     else {
-        return dsalib_binary_search_recursive(arr, left, mid, target);
+        return dsalib_binary_search_recursive(arr, left, mid - 1, target);
     }
 }

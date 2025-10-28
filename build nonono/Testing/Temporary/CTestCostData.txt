@@ -1,0 +1,9 @@
+test_add 1 0.013495
+test_linear_search 0 0
+test_binary_search 0 0
+test_stack 0 0
+test_queue 1 0.00997764
+---
+test_linear_search
+test_binary_search
+test_stack

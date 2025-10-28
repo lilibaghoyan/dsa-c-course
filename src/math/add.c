@@ -1,18 +1,13 @@
 #include "dsalib/math/add.h"
+#include <limits.h>
 
 int unsafe_add(int a, int b) {
     return a + b;
 }
 
 int safe_add(int a, int b) {
-    int sum = a + b;
-    if (a > 0 && b > 0 && sum < 0) {
-        printf("Error: integer overflow\n");
-        return 0;
-    }
-    if (a < 0 && b < 0 && sum > 0) {
-        printf("Error: integer underflow\n");
-        return 0;
-    }
-    return sum;
+    long long sum = (long long)a + (long long)b;
+    if (sum > INT_MAX) return INT_MAX;
+    if (sum < INT_MIN) return INT_MIN;
+    return (int)sum;
 }

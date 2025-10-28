@@ -258,4 +258,177 @@ A palindrome checker. Read a string from the user, push each character to the ba
   - **Index Management**: Logic for wrapping `head` and `tail` pointers.
   - **Data Structure Design**: Implementing a less common but useful data structure.
 
+---
+
+### 10. `C-BST`: A Binary Search Tree Library
+
+# Project Title: `C-BST` - A Binary Search Tree Library
+
+## Overview
+
+A Binary Search Tree (BST) is a hierarchical data structure where each node has up to two children: the left subtree contains values less than the node’s key, and the right subtree contains values greater than it.
+This project implements a **simple, unbalanced BST** in C — ideal for learning how trees are built, traversed, and modified without the extra complexity of balancing algorithms.
+
+## Core Features
+
+* Create and destroy a BST.
+* Insert, search, and delete keys.
+* Optional support for storing **key-value pairs** (like a map).
+* Traversal functions:
+
+  * **Inorder** (sorted order)
+  * **Preorder**
+  * **Postorder**
+* Optional recursive or iterative implementations.
+
+## Demo Application Idea
+
+A **contact manager**: each contact’s name is the key (string), and their phone number or email is the value.
+The user can add, remove, or search contacts, and print the contact list alphabetically using an inorder traversal.
+
+## Key Learning Concepts
+
+* **Tree Fundamentals**: Understanding parent-child relationships and recursive structure.
+* **Recursion Practice**: Implementing traversal and search logic recursively.
+* **Dynamic Memory**: Managing node creation and deletion with `malloc`/`free`.
+* **Ordered Data**: Using trees to maintain sorted data efficiently.
+
+---
+
+### 11. `C-UnionFind`: A Disjoint Set / Union-Find Library
+
+# Project Title: `C-UnionFind` - A Disjoint Set Data Structure
+
+## Overview
+
+The Union-Find (Disjoint Set Union, DSU) structure efficiently manages a collection of non-overlapping sets and supports union and find operations in near-constant time. This structure underpins many graph algorithms such as Kruskal’s Minimum Spanning Tree.
+
+## Core Features
+
+* Create and destroy a disjoint set.
+* `find(x)` with **path compression**.
+* `union(x, y)` with **union by rank** or **size**.
+* Optional API to check whether two elements belong to the same set.
+
+## Demo Application Idea
+
+A **network connectivity simulator**: given a list of nodes and connections (edges), repeatedly union connected nodes. The user can query whether two nodes are connected.
+
+## Key Learning Concepts
+
+* **Disjoint Set Theory**: Core structure for many graph algorithms.
+* **Optimization Techniques**: Path compression and union by rank.
+* **Graph Applications**: Foundation for Kruskal’s MST and clustering problems.
+
+---
+
+### 12. `C-MST`: Minimum Spanning Tree Algorithms Library
+
+# Project Title: `C-MST` - A Library for Kruskal’s and Prim’s Algorithms
+
+## Overview
+
+This project builds on the `C-Graph` and `C-UnionFind` libraries to compute **Minimum Spanning Trees** (MSTs). MSTs connect all vertices in a weighted graph with the minimal total edge weight. The library should provide both **Kruskal’s** and **Prim’s** algorithms.
+
+## Core Features
+
+* Build MSTs from weighted undirected graphs.
+* Implement **Kruskal’s algorithm** (using a union-find).
+* Implement **Prim’s algorithm** (using a priority queue).
+* Return the total weight and list of edges in the MST.
+
+## Demo Application Idea
+
+A network optimization tool that reads a list of cities (vertices) and possible road connections (edges with costs) and outputs the cheapest way to connect all cities.
+
+## Key Learning Concepts
+
+* **Greedy Algorithms**: Understanding Kruskal’s and Prim’s methods.
+* **Data Structure Integration**: Combining graphs, priority queues, and DSUs.
+* **Graph Theory Applications**: Real-world use cases in network design.
+
+---
+
+### 13. `C-TreeVisualizer`: A Binary Tree Visualization Tool
+
+# Project Title: `C-TreeVisualizer` - A Binary Tree Structure Printer
+
+## Overview
+
+Binary trees can be tricky to debug. This project provides a library for building and **printing binary trees in a human-readable, structured format** (e.g., ASCII-art or DOT format for Graphviz). You’ll learn about tree traversal, recursion, and structured output.
+
+## Core Features
+
+* Functions to build a binary tree manually or from an array.
+* Pretty-printing in **ASCII** (rotated or top-down format).
+* Optionally, export to **Graphviz DOT** format.
+* Support for binary search trees and expression trees.
+
+## Demo Application Idea
+
+A simple expression parser that builds a binary tree from an arithmetic expression (e.g., `(3 + 4) * 2`) and then prints the tree in a human-readable format.
+
+## Key Learning Concepts
+
+* **Tree Traversals**: Inorder, preorder, and postorder.
+* **Recursion in Trees**: Implementing depth-first operations cleanly.
+* **Visualization**: Translating data structure hierarchy to 2D representation.
+* **Practical Debugging Tools**: Understanding tree structures visually.
+
+---
+
+### 14. `C-TopoSort`: A Topological Sorting and DAG Utilities Library
+
+# Project Title: `C-TopoSort` - Directed Acyclic Graph Algorithms Library
+
+## Overview
+
+Directed Acyclic Graphs (DAGs) model dependencies between tasks or modules. This project implements **topological sorting** and other DAG-related utilities, like cycle detection. It’s widely used in build systems, scheduling, and compiler dependency analysis.
+
+## Core Features
+
+* Build a directed graph.
+* Implement **topological sort** using DFS or Kahn’s algorithm.
+* Detect cycles in the graph.
+* Optionally, compute the **longest path in a DAG**.
+
+## Demo Application Idea
+
+A **task dependency resolver**: given tasks and their dependencies (like “build before link”), produce a valid order of execution or detect if a circular dependency exists.
+
+## Key Learning Concepts
+
+* **Graph Traversal Algorithms**: DFS, BFS for DAGs.
+* **Cycle Detection**: Understanding how to detect invalid dependency loops.
+* **Scheduling**: Applying DAGs to real-world problems.
+* **Algorithm Design**: Building reusable, clear APIs for graph analysis.
+
+---
+
+### 15. `C-Trie`: A Prefix Tree Library
+
+# Project Title: `C-Trie` - A Trie (Prefix Tree) for Strings
+
+## Overview
+
+A Trie is a tree-based data structure that efficiently stores and retrieves strings based on their prefixes. It’s the backbone of autocomplete systems and spell checkers. This project involves implementing a generic, efficient Trie library in C.
+
+## Core Features
+
+* Insert and delete words.
+* Search for full words or prefixes.
+* Support for lowercase ASCII characters (extendable).
+* Optional memory optimization for sparse nodes.
+
+## Demo Application Idea
+
+An **autocomplete engine**: load a dictionary file into a Trie, then repeatedly accept a prefix from the user and print all possible completions.
+
+## Key Learning Concepts
+
+* **Tree-Like Structures for Strings**: How tries differ from binary trees.
+* **Prefix Matching**: Efficient lookup and traversal.
+* **Memory Efficiency**: Managing dynamically allocated nodes.
+* **Practical Applications**: Search engines, autocompletion, and dictionaries.
+
 -----

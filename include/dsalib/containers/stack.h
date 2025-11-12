@@ -14,6 +14,7 @@
  * - Push: O(1) amortized (O(n) when resizing)
  * - Pop: O(1)
  * - Peek: O(1)
+ * 
  * - IsEmpty: O(1)
  * - Size: O(1)
  */

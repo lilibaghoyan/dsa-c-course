@@ -3,14 +3,53 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define DEFEULT_CAPACITY 4
+
 dsalib_stack_t* dsalib_stack_create(size_t initial_capacity) {
-    return NULL;
+    if (initial_capacity == 0){
+        initial_capacity = DEFEULT_CAPACITY;
+    }
+    dsalib_stack_t* stack = malloc(sizeof(dsalib_stack_t));
+    
+    if (!stack) {
+        return NULL;
+    }
+    
+    stack->data = malloc(initial_capacity*sizeof(int));
+    if (!stack->data){
+        free(stack);
+        return NULL;
+    }
+
+    stack->size = 0;
+    stack->capacity = initial_capacity;
+    return stack;
 }
 
-void dsalib_stack_destroy(dsalib_stack_t* stack) {}
+
+void dsalib_stack_destroy(dsalib_stack_t* stack) {
+    if(!stack) return;
+    free(stack->data);
+    free(stack);
+
+}
 
 bool dsalib_stack_push(dsalib_stack_t* stack, int value) {
-    return false;
+    if (!stack) {
+        return false;
+    }
+    if(stack->size == stack->capacity){
+        size_t new_capacity = stack->capacity * 2;
+        int* new_data = realloc(stack->data, new_capacity*sizeof(int));
+        if (!new_data){
+            return false;
+        }
+        stack->capacity = new_capacity;
+        stack->data = new_data;
+    }
+    stack->data[stack->size] = value;
+    stack->size++;
+    return true;
 }
 
 bool dsalib_stack_pop(dsalib_stack_t* stack, int* value) {
